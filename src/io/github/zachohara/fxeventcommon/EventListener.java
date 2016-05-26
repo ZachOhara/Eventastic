@@ -35,17 +35,6 @@ public abstract class EventListener<L, H> {
 		return this.handlers.add(handler);
 	}
 	
-	@SuppressWarnings("unchecked")
-	public boolean addAll(H... handlers) {
-		boolean success = true;
-		for (H handler : handlers) {
-			if (!this.addHandler(handler)) {
-				success = false;
-			}
-		}
-		return success;
-	}
-	
 	public boolean removeHandler(H handler) {
 		return this.handlers.remove(handler);
 	}
