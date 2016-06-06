@@ -14,28 +14,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.fxeventcommon.key;
+package io.github.zachohara.eventfx.mouse;
 
-import io.github.zachohara.fxeventcommon.EventListener;
+import io.github.zachohara.eventfx.EventListener;
 import javafx.event.EventHandler;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
-public class KeyEventListener extends EventListener<KeyListenable, KeyHandler> implements EventHandler<KeyEvent> {
+public class MouseEventListener extends EventListener<MouseListenable, MouseHandler> implements EventHandler<MouseEvent> {
 	
-	public KeyEventListener(KeyListenable listenable) {
+	public MouseEventListener(MouseListenable listenable) {
 		super();
-		listenable.addEventHandler(KeyEvent.ANY, this);
+		listenable.addEventHandler(MouseEvent.ANY, this);
 	}
 
 	@Override
-	public void handle(KeyEvent event) {
-		for (KeyHandler handler : this.getHandlerList()) {
-			handler.handleKey(event, event.getEventType(), event.getCode());
+	public void handle(MouseEvent event) {
+		for (MouseHandler handler : this.getHandlerList()) {
+			handler.handleMouse(event, event.getEventType());
 		}
 	}
 	
-	public static KeyEventListener createSelfHandler(KeySelfHandler handler) {
-		KeyEventListener listener = new KeyEventListener(handler);
+	public static MouseEventListener createSelfHandler(MouseSelfHandler handler) {
+		MouseEventListener listener = new MouseEventListener(handler);
 		listener.addHandler(handler);
 		return listener;
 	}

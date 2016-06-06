@@ -14,29 +14,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.fxeventcommon;
+package io.github.zachohara.eventfx.key;
 
-import java.util.LinkedList;
-import java.util.List;
+import javafx.event.EventType;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
-public abstract class EventListener<L, H> {
+public interface KeyHandler {
 	
-	private List<H> handlers;
-	
-	public EventListener() {
-		this.handlers = new LinkedList<H>();
-	}
-	
-	protected List<H> getHandlerList() {
-		return this.handlers;
-	}
-	
-	public boolean addHandler(H handler) {
-		return this.handlers.add(handler);
-	}
-	
-	public boolean removeHandler(H handler) {
-		return this.handlers.remove(handler);
-	}
+	public void handleKey(KeyEvent event, EventType<KeyEvent> type, KeyCode code);
 
 }

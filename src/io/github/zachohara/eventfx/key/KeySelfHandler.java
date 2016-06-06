@@ -14,8 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.fxeventcommon.focus;
+package io.github.zachohara.eventfx.key;
 
-public interface FocusSelfHandler extends FocusListenable, FocusHandler {
+public interface KeySelfHandler extends KeyListenable, KeyHandler {
 
 }

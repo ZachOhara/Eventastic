@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.fxeventcommon.resize;
+package io.github.zachohara.eventfx.resize;
 
 public interface ResizeSelfHandler extends ResizeListenable, ResizeHandler {
 

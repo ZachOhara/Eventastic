@@ -14,10 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.fxeventcommon.resize;
+package io.github.zachohara.eventfx.focus;
 
-public interface ResizeHandler {
-	
-	public void handleResize();
+public interface FocusSelfHandler extends FocusListenable, FocusHandler {
 
 }

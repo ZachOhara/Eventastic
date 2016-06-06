@@ -14,12 +14,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.fxeventcommon.focus;
+package io.github.zachohara.eventfx.window;
 
-import javafx.beans.property.ReadOnlyBooleanProperty;
+import javafx.event.EventHandler;
+import javafx.stage.WindowEvent;
 
-public interface FocusListenable {
+public interface WindowListenable {
 	
-	public ReadOnlyBooleanProperty focusedProperty();
+	public void setOnCloseRequest(EventHandler<WindowEvent> eventHandler);
+	public void setOnHidden(EventHandler<WindowEvent> eventHandler);
+	public void setOnHiding(EventHandler<WindowEvent> eventHandler);
+	public void setOnShown(EventHandler<WindowEvent> eventHandler);
+	public void setOnShowing(EventHandler<WindowEvent> eventHandler);
 
 }

@@ -14,28 +14,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.fxeventcommon.mouse;
+package io.github.zachohara.eventfx.focus;
 
-import io.github.zachohara.fxeventcommon.EventListener;
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
+import io.github.zachohara.eventfx.EventListener;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
-public class MouseEventListener extends EventListener<MouseListenable, MouseHandler> implements EventHandler<MouseEvent> {
+public class FocusChangeListener extends EventListener<FocusListenable, FocusHandler> implements ChangeListener<Boolean> {
 	
-	public MouseEventListener(MouseListenable listenable) {
+	public FocusChangeListener(FocusListenable listenable) {
 		super();
-		listenable.addEventHandler(MouseEvent.ANY, this);
+		listenable.focusedProperty().addListener(this);
 	}
 
 	@Override
-	public void handle(MouseEvent event) {
-		for (MouseHandler handler : this.getHandlerList()) {
-			handler.handleMouse(event, event.getEventType());
+	public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+		for (FocusHandler handler : this.getHandlerList()) {
+			handler.handleFocusChange(newValue);
 		}
 	}
 	
-	public static MouseEventListener createSelfHandler(MouseSelfHandler handler) {
-		MouseEventListener listener = new MouseEventListener(handler);
+	public static FocusChangeListener createSelfHandler(FocusSelfHandler handler) {
+		FocusChangeListener listener = new FocusChangeListener(handler);
 		listener.addHandler(handler);
 		return listener;
 	}

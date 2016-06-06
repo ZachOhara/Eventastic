@@ -14,17 +14,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.fxeventcommon.window;
+package io.github.zachohara.eventfx.key;
 
+import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.stage.WindowEvent;
+import javafx.event.EventType;
 
-public interface WindowListenable {
+public interface KeyListenable {
 	
-	public void setOnCloseRequest(EventHandler<WindowEvent> eventHandler);
-	public void setOnHidden(EventHandler<WindowEvent> eventHandler);
-	public void setOnHiding(EventHandler<WindowEvent> eventHandler);
-	public void setOnShown(EventHandler<WindowEvent> eventHandler);
-	public void setOnShowing(EventHandler<WindowEvent> eventHandler);
+	public <T extends Event> void addEventHandler(EventType<T> eventType, EventHandler<? super T> eventHandler);
 
 }

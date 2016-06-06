@@ -14,14 +14,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.fxeventcommon.key;
+package io.github.zachohara.eventfx.focus;
 
-import javafx.event.EventType;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+import javafx.beans.property.ReadOnlyBooleanProperty;
 
-public interface KeyHandler {
+public interface FocusListenable {
 	
-	public void handleKey(KeyEvent event, EventType<KeyEvent> type, KeyCode code);
+	public ReadOnlyBooleanProperty focusedProperty();
 
 }

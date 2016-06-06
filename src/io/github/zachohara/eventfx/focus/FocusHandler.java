@@ -14,13 +14,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.fxeventcommon.mouse;
+package io.github.zachohara.eventfx.focus;
 
-import javafx.event.EventType;
-import javafx.scene.input.MouseEvent;
-
-public interface MouseHandler {
+public interface FocusHandler {
 	
-	public void handleMouse(MouseEvent event, EventType<? extends MouseEvent> type);
+	public void handleFocusChange(boolean hasFocus);
 
 }

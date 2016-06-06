@@ -14,10 +14,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.fxeventcommon.focus;
+package io.github.zachohara.eventfx.button;
 
-public interface FocusHandler {
+public interface ButtonHandler {
 	
-	public void handleFocusChange(boolean hasFocus);
+	public void handleButtonPress();
 
 }

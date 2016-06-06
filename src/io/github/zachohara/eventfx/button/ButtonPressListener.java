@@ -14,9 +14,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.fxeventcommon.button;
+package io.github.zachohara.eventfx.button;
 
-import io.github.zachohara.fxeventcommon.EventListener;
+import io.github.zachohara.eventfx.EventListener;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;

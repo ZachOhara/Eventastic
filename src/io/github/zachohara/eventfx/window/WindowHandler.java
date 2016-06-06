@@ -14,8 +14,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.fxeventcommon.mouse;
+package io.github.zachohara.eventfx.window;
 
-public interface MouseSelfHandler extends MouseListenable, MouseHandler {
+import javafx.event.EventType;
+import javafx.stage.WindowEvent;
+
+public interface WindowHandler {
 	
+	public void handleWindowEvent(WindowEvent event, EventType<? extends WindowEvent> type);
+
 }

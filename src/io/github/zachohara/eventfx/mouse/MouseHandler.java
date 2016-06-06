@@ -14,10 +14,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.fxeventcommon.button;
+package io.github.zachohara.eventfx.mouse;
 
-public interface ButtonHandler {
+import javafx.event.EventType;
+import javafx.scene.input.MouseEvent;
+
+public interface MouseHandler {
 	
-	public void handleButtonPress();
+	public void handleMouse(MouseEvent event, EventType<? extends MouseEvent> type);
 
 }

@@ -14,13 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.fxeventcommon.window;
+package io.github.zachohara.eventfx.window;
 
-import javafx.event.EventType;
-import javafx.stage.WindowEvent;
-
-public interface WindowHandler {
-	
-	public void handleWindowEvent(WindowEvent event, EventType<? extends WindowEvent> type);
+public interface WindowSelfHandler extends WindowListenable, WindowHandler {
 
 }
