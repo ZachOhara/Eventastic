@@ -14,8 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventastic.mouse;
+package io.github.zachohara.eventastic.window;
 
-public interface MouseSelfHandler extends MouseListenable, MouseHandler {
-	
+public interface SelfWindowHandler extends WindowListenable, WindowHandler {
+
 }

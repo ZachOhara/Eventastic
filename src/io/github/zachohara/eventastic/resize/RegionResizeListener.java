@@ -36,7 +36,7 @@ public class RegionResizeListener extends EventListener<ResizeListenable, Resize
 		}
 	}
 	
-	public static RegionResizeListener createSelfHandler(ResizeSelfHandler handler) {
+	public static RegionResizeListener createSelfHandler(SelfResizeHandler handler) {
 		RegionResizeListener listener = new RegionResizeListener(handler);
 		listener.addHandler(handler);
 		return listener;

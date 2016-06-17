@@ -38,7 +38,7 @@ public class WindowEventListener extends EventListener<WindowListenable, WindowH
 		}
 	}
 	
-	public static WindowEventListener createSelfHandler(WindowSelfHandler handler) {
+	public static WindowEventListener createSelfHandler(SelfWindowHandler handler) {
 		WindowEventListener listener = new WindowEventListener(handler);
 		listener.addHandler(handler);
 		return listener;

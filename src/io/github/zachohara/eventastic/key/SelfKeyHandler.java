@@ -16,6 +16,6 @@
 
 package io.github.zachohara.eventastic.key;
 
-public interface KeySelfHandler extends KeyListenable, KeyHandler {
+public interface SelfKeyHandler extends KeyListenable, KeyHandler {
 
 }

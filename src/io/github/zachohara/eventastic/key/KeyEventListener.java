@@ -34,7 +34,7 @@ public class KeyEventListener extends EventListener<KeyListenable, KeyHandler> i
 		}
 	}
 	
-	public static KeyEventListener createSelfHandler(KeySelfHandler handler) {
+	public static KeyEventListener createSelfHandler(SelfKeyHandler handler) {
 		KeyEventListener listener = new KeyEventListener(handler);
 		listener.addHandler(handler);
 		return listener;

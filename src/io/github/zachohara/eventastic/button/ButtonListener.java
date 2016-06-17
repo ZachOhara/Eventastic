@@ -22,9 +22,9 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
 
-public class ButtonPressListener extends EventListener<Button, ButtonHandler> implements EventHandler<ActionEvent> {
+public class ButtonListener extends EventListener<Button, ButtonHandler> implements EventHandler<ActionEvent> {
 	
-	public ButtonPressListener(Button listenable) {
+	public ButtonListener(Button listenable) {
 		super();
 		listenable.setOnAction(this);
 	}
@@ -36,8 +36,8 @@ public class ButtonPressListener extends EventListener<Button, ButtonHandler> im
 		}
 	}
 	
-	public static <H extends Button & ButtonHandler> ButtonPressListener createSelfListener(H handler) {
-		ButtonPressListener listener = new ButtonPressListener(handler);
+	public static <H extends Button & ButtonHandler> ButtonListener createSelfListener(H handler) {
+		ButtonListener listener = new ButtonListener(handler);
 		listener.addHandler(handler);
 		return listener;
 	}

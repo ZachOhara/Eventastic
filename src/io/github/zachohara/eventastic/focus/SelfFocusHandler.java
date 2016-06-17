@@ -14,8 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventastic.resize;
+package io.github.zachohara.eventastic.focus;
 
-public interface ResizeSelfHandler extends ResizeListenable, ResizeHandler {
+public interface SelfFocusHandler extends FocusListenable, FocusHandler {
 
 }
