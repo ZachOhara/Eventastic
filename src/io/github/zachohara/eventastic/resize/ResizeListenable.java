@@ -14,14 +14,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.mouse;
+package io.github.zachohara.eventastic.resize;
 
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
+import javafx.beans.property.ReadOnlyDoubleProperty;
 
-public interface MouseListenable {
+public interface ResizeListenable {
 	
-	public <T extends Event> void addEventHandler(EventType<T> eventType, EventHandler<? super T> eventHandler);
+	public ReadOnlyDoubleProperty widthProperty();
+	public ReadOnlyDoubleProperty heightProperty();
 
 }

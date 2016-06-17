@@ -14,10 +14,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.button;
+package io.github.zachohara.eventastic.window;
 
-public interface ButtonHandler {
+import javafx.event.EventType;
+import javafx.stage.WindowEvent;
+
+public interface WindowHandler {
 	
-	public void handleButtonPress();
+	public void handleWindowEvent(WindowEvent event, EventType<? extends WindowEvent> type);
 
 }

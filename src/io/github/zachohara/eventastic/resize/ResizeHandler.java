@@ -14,14 +14,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.key;
+package io.github.zachohara.eventastic.resize;
 
-import javafx.event.EventType;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-
-public interface KeyHandler {
+public interface ResizeHandler {
 	
-	public void handleKey(KeyEvent event, EventType<KeyEvent> type, KeyCode code);
+	public void handleResize();
 
 }

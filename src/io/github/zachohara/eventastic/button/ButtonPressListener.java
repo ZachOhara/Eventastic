@@ -14,28 +14,30 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.focus;
+package io.github.zachohara.eventastic.button;
 
-import io.github.zachohara.eventfx.EventListener;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import io.github.zachohara.eventastic.EventListener;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 
-public class FocusChangeListener extends EventListener<FocusListenable, FocusHandler> implements ChangeListener<Boolean> {
+
+public class ButtonPressListener extends EventListener<Button, ButtonHandler> implements EventHandler<ActionEvent> {
 	
-	public FocusChangeListener(FocusListenable listenable) {
+	public ButtonPressListener(Button listenable) {
 		super();
-		listenable.focusedProperty().addListener(this);
+		listenable.setOnAction(this);
 	}
 
 	@Override
-	public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-		for (FocusHandler handler : this.getHandlerList()) {
-			handler.handleFocusChange(newValue);
+	public void handle(ActionEvent event) {
+		for (ButtonHandler handler : this.getHandlerList()) {
+			handler.handleButtonPress();
 		}
 	}
 	
-	public static FocusChangeListener createSelfHandler(FocusSelfHandler handler) {
-		FocusChangeListener listener = new FocusChangeListener(handler);
+	public static <H extends Button & ButtonHandler> ButtonPressListener createSelfListener(H handler) {
+		ButtonPressListener listener = new ButtonPressListener(handler);
 		listener.addHandler(handler);
 		return listener;
 	}

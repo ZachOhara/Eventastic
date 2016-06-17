@@ -14,8 +14,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.key;
+package io.github.zachohara.eventastic.focus;
 
-public interface KeySelfHandler extends KeyListenable, KeyHandler {
+public interface FocusHandler {
+	
+	public void handleFocusChange(boolean hasFocus);
 
 }

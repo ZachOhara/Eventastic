@@ -14,12 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.focus;
+package io.github.zachohara.eventastic.key;
 
-import javafx.beans.property.ReadOnlyBooleanProperty;
-
-public interface FocusListenable {
-	
-	public ReadOnlyBooleanProperty focusedProperty();
+public interface KeySelfHandler extends KeyListenable, KeyHandler {
 
 }

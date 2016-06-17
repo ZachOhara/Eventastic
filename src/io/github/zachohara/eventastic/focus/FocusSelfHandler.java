@@ -14,8 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.window;
+package io.github.zachohara.eventastic.focus;
 
-public interface WindowSelfHandler extends WindowListenable, WindowHandler {
+public interface FocusSelfHandler extends FocusListenable, FocusHandler {
 
 }

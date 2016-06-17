@@ -14,10 +14,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.resize;
+package io.github.zachohara.eventastic.window;
 
-public interface ResizeHandler {
+import javafx.event.EventHandler;
+import javafx.stage.WindowEvent;
+
+public interface WindowListenable {
 	
-	public void handleResize();
+	public void setOnCloseRequest(EventHandler<WindowEvent> eventHandler);
+	public void setOnHidden(EventHandler<WindowEvent> eventHandler);
+	public void setOnHiding(EventHandler<WindowEvent> eventHandler);
+	public void setOnShown(EventHandler<WindowEvent> eventHandler);
+	public void setOnShowing(EventHandler<WindowEvent> eventHandler);
 
 }

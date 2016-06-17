@@ -14,17 +14,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.window;
+package io.github.zachohara.eventastic.key;
 
-import javafx.event.EventHandler;
-import javafx.stage.WindowEvent;
+import javafx.event.EventType;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
-public interface WindowListenable {
+public interface KeyHandler {
 	
-	public void setOnCloseRequest(EventHandler<WindowEvent> eventHandler);
-	public void setOnHidden(EventHandler<WindowEvent> eventHandler);
-	public void setOnHiding(EventHandler<WindowEvent> eventHandler);
-	public void setOnShown(EventHandler<WindowEvent> eventHandler);
-	public void setOnShowing(EventHandler<WindowEvent> eventHandler);
+	public void handleKey(KeyEvent event, EventType<KeyEvent> type, KeyCode code);
 
 }

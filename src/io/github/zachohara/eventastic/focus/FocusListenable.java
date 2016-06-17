@@ -14,13 +14,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.window;
+package io.github.zachohara.eventastic.focus;
 
-import javafx.event.EventType;
-import javafx.stage.WindowEvent;
+import javafx.beans.property.ReadOnlyBooleanProperty;
 
-public interface WindowHandler {
+public interface FocusListenable {
 	
-	public void handleWindowEvent(WindowEvent event, EventType<? extends WindowEvent> type);
+	public ReadOnlyBooleanProperty focusedProperty();
 
 }

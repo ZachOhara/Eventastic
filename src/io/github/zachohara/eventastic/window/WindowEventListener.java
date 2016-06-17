@@ -14,32 +14,34 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.button;
+package io.github.zachohara.eventastic.window;
 
-import io.github.zachohara.eventfx.EventListener;
-import javafx.event.ActionEvent;
+import io.github.zachohara.eventastic.EventListener;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
+import javafx.stage.WindowEvent;
 
-
-public class ButtonPressListener extends EventListener<Button, ButtonHandler> implements EventHandler<ActionEvent> {
+public class WindowEventListener extends EventListener<WindowListenable, WindowHandler> implements EventHandler<WindowEvent> {
 	
-	public ButtonPressListener(Button listenable) {
+	public WindowEventListener(WindowListenable listenable) {
 		super();
-		listenable.setOnAction(this);
+		listenable.setOnCloseRequest(this);
+		listenable.setOnHidden(this);
+		listenable.setOnHiding(this);
+		listenable.setOnShown(this);
+		listenable.setOnShowing(this);
 	}
 
 	@Override
-	public void handle(ActionEvent event) {
-		for (ButtonHandler handler : this.getHandlerList()) {
-			handler.handleButtonPress();
+	public void handle(WindowEvent event) {
+		for (WindowHandler handler : this.getHandlerList()) {
+			handler.handleWindowEvent(event, event.getEventType());
 		}
 	}
 	
-	public static <H extends Button & ButtonHandler> ButtonPressListener createSelfListener(H handler) {
-		ButtonPressListener listener = new ButtonPressListener(handler);
+	public static WindowEventListener createSelfHandler(WindowSelfHandler handler) {
+		WindowEventListener listener = new WindowEventListener(handler);
 		listener.addHandler(handler);
 		return listener;
 	}
-
+	
 }

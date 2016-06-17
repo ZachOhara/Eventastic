@@ -14,34 +14,30 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.window;
+package io.github.zachohara.eventastic.key;
 
-import io.github.zachohara.eventfx.EventListener;
+import io.github.zachohara.eventastic.EventListener;
 import javafx.event.EventHandler;
-import javafx.stage.WindowEvent;
+import javafx.scene.input.KeyEvent;
 
-public class WindowEventListener extends EventListener<WindowListenable, WindowHandler> implements EventHandler<WindowEvent> {
+public class KeyEventListener extends EventListener<KeyListenable, KeyHandler> implements EventHandler<KeyEvent> {
 	
-	public WindowEventListener(WindowListenable listenable) {
+	public KeyEventListener(KeyListenable listenable) {
 		super();
-		listenable.setOnCloseRequest(this);
-		listenable.setOnHidden(this);
-		listenable.setOnHiding(this);
-		listenable.setOnShown(this);
-		listenable.setOnShowing(this);
+		listenable.addEventHandler(KeyEvent.ANY, this);
 	}
 
 	@Override
-	public void handle(WindowEvent event) {
-		for (WindowHandler handler : this.getHandlerList()) {
-			handler.handleWindowEvent(event, event.getEventType());
+	public void handle(KeyEvent event) {
+		for (KeyHandler handler : this.getHandlerList()) {
+			handler.handleKey(event, event.getEventType(), event.getCode());
 		}
 	}
 	
-	public static WindowEventListener createSelfHandler(WindowSelfHandler handler) {
-		WindowEventListener listener = new WindowEventListener(handler);
+	public static KeyEventListener createSelfHandler(KeySelfHandler handler) {
+		KeyEventListener listener = new KeyEventListener(handler);
 		listener.addHandler(handler);
 		return listener;
 	}
-	
+
 }

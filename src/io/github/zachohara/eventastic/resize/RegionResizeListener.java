@@ -14,9 +14,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.resize;
+package io.github.zachohara.eventastic.resize;
 
-import io.github.zachohara.eventfx.EventListener;
+import io.github.zachohara.eventastic.EventListener;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 

@@ -14,14 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.key;
+package io.github.zachohara.eventastic.resize;
 
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
-
-public interface KeyListenable {
-	
-	public <T extends Event> void addEventHandler(EventType<T> eventType, EventHandler<? super T> eventHandler);
+public interface ResizeSelfHandler extends ResizeListenable, ResizeHandler {
 
 }

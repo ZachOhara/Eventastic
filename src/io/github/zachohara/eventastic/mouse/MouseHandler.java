@@ -14,8 +14,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.resize;
+package io.github.zachohara.eventastic.mouse;
 
-public interface ResizeSelfHandler extends ResizeListenable, ResizeHandler {
+import javafx.event.EventType;
+import javafx.scene.input.MouseEvent;
+
+public interface MouseHandler {
+	
+	public void handleMouse(MouseEvent event, EventType<? extends MouseEvent> type);
 
 }

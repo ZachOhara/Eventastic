@@ -14,13 +14,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.eventfx.mouse;
+package io.github.zachohara.eventastic.mouse;
 
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.event.EventType;
-import javafx.scene.input.MouseEvent;
 
-public interface MouseHandler {
+public interface MouseListenable {
 	
-	public void handleMouse(MouseEvent event, EventType<? extends MouseEvent> type);
+	public <T extends Event> void addEventHandler(EventType<T> eventType, EventHandler<? super T> eventHandler);
 
 }
