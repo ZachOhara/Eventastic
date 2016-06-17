@@ -20,7 +20,7 @@ import io.github.zachohara.eventastic.EventListener;
 import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
 
-public class WindowEventListener extends EventListener<WindowListenable, WindowHandler> implements EventHandler<WindowEvent> {
+public final class WindowEventListener extends EventListener<WindowListenable, WindowHandler> implements EventHandler<WindowEvent> {
 	
 	public WindowEventListener(SelfWindowHandler handler) {
 		this(handler, handler);

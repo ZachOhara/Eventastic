@@ -20,7 +20,7 @@ import io.github.zachohara.eventastic.EventListener;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
-public class FocusChangeListener extends EventListener<FocusListenable, FocusHandler> implements ChangeListener<Boolean> {
+public final class FocusChangeListener extends EventListener<FocusListenable, FocusHandler> implements ChangeListener<Boolean> {
 	
 	public FocusChangeListener(SelfFocusHandler handler) {
 		this(handler, handler);

@@ -20,7 +20,7 @@ import io.github.zachohara.eventastic.EventListener;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 
-public class KeyEventListener extends EventListener<KeyListenable, KeyHandler> implements EventHandler<KeyEvent> {
+public final class KeyEventListener extends EventListener<KeyListenable, KeyHandler> implements EventHandler<KeyEvent> {
 	
 	public KeyEventListener(SelfKeyHandler handler) {
 		this(handler, handler);

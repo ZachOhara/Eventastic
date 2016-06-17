@@ -20,7 +20,7 @@ import io.github.zachohara.eventastic.EventListener;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
-public class RegionResizeListener extends EventListener<ResizeListenable, ResizeHandler> implements ChangeListener<Number> {
+public final class RegionResizeListener extends EventListener<ResizeListenable, ResizeHandler> implements ChangeListener<Number> {
 	
 	public RegionResizeListener(SelfResizeHandler handler) {
 		this(handler, handler);

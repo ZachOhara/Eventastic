@@ -20,7 +20,7 @@ import io.github.zachohara.eventastic.EventListener;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
-public class MouseEventListener extends EventListener<MouseListenable, MouseHandler> implements EventHandler<MouseEvent> {
+public final class MouseEventListener extends EventListener<MouseListenable, MouseHandler> implements EventHandler<MouseEvent> {
 	
 	public MouseEventListener(SelfMouseHandler handler) {
 		this(handler, handler);

@@ -21,8 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
-
-public class ButtonListener extends EventListener<Button, ButtonHandler> implements EventHandler<ActionEvent> {
+public final class ButtonListener extends EventListener<Button, ButtonHandler> implements EventHandler<ActionEvent> {
 	
 	public <H extends Button & ButtonHandler> ButtonListener(H handler) {
 		this(handler, handler);
