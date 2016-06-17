@@ -22,22 +22,18 @@ import javafx.scene.input.MouseEvent;
 
 public class MouseEventListener extends EventListener<MouseListenable, MouseHandler> implements EventHandler<MouseEvent> {
 	
-	public MouseEventListener(MouseListenable listenable) {
-		super();
+	public MouseEventListener(SelfMouseHandler handler) {
+		this(handler, handler);
+	}
+	
+	public MouseEventListener(MouseListenable listenable, MouseHandler handler) {
+		super(handler);
 		listenable.addEventHandler(MouseEvent.ANY, this);
 	}
 
 	@Override
 	public void handle(MouseEvent event) {
-		for (MouseHandler handler : this.getHandlerList()) {
-			handler.handleMouse(event, event.getEventType());
-		}
-	}
-	
-	public static MouseEventListener createSelfHandler(SelfMouseHandler handler) {
-		MouseEventListener listener = new MouseEventListener(handler);
-		listener.addHandler(handler);
-		return listener;
+		this.getHandler().handleMouse(event, event.getEventType());
 	}
 
 }

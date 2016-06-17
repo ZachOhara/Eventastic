@@ -22,8 +22,12 @@ import javafx.beans.value.ObservableValue;
 
 public class RegionResizeListener extends EventListener<ResizeListenable, ResizeHandler> implements ChangeListener<Number> {
 	
-	public RegionResizeListener(ResizeListenable listenable) {
-		super();
+	public RegionResizeListener(SelfResizeHandler handler) {
+		this(handler, handler);
+	}
+	
+	public RegionResizeListener(ResizeListenable listenable, ResizeHandler handler) {
+		super(handler);
 		listenable.widthProperty().addListener(this);
 		listenable.heightProperty().addListener(this);
 	}
@@ -31,15 +35,7 @@ public class RegionResizeListener extends EventListener<ResizeListenable, Resize
 	@Override
 	public void changed(ObservableValue<? extends Number> observable, Number oldValue,
 			Number newValue) {
-		for (ResizeHandler handler : this.getHandlerList()) {
-			handler.handleResize();
-		}
-	}
-	
-	public static RegionResizeListener createSelfHandler(SelfResizeHandler handler) {
-		RegionResizeListener listener = new RegionResizeListener(handler);
-		listener.addHandler(handler);
-		return listener;
+		this.getHandler().handleResize();
 	}
 
 }

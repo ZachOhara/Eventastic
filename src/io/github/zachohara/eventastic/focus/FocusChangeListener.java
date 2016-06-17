@@ -22,22 +22,18 @@ import javafx.beans.value.ObservableValue;
 
 public class FocusChangeListener extends EventListener<FocusListenable, FocusHandler> implements ChangeListener<Boolean> {
 	
-	public FocusChangeListener(FocusListenable listenable) {
-		super();
+	public FocusChangeListener(SelfFocusHandler handler) {
+		this(handler, handler);
+	}
+	
+	public FocusChangeListener(FocusListenable listenable, FocusHandler handler) {
+		super(handler);
 		listenable.focusedProperty().addListener(this);
 	}
 
 	@Override
 	public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-		for (FocusHandler handler : this.getHandlerList()) {
-			handler.handleFocusChange(newValue);
-		}
-	}
-	
-	public static FocusChangeListener createSelfHandler(SelfFocusHandler handler) {
-		FocusChangeListener listener = new FocusChangeListener(handler);
-		listener.addHandler(handler);
-		return listener;
+		this.getHandler().handleFocusChange(newValue);
 	}
 
 }

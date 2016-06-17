@@ -24,22 +24,18 @@ import javafx.scene.control.Button;
 
 public class ButtonListener extends EventListener<Button, ButtonHandler> implements EventHandler<ActionEvent> {
 	
-	public ButtonListener(Button listenable) {
-		super();
+	public <H extends Button & ButtonHandler> ButtonListener(H handler) {
+		this(handler, handler);
+	}
+	
+	public ButtonListener(Button listenable, ButtonHandler handler) {
+		super(handler);
 		listenable.setOnAction(this);
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
-		for (ButtonHandler handler : this.getHandlerList()) {
-			handler.handleButtonPress();
-		}
-	}
-	
-	public static <H extends Button & ButtonHandler> ButtonListener createSelfListener(H handler) {
-		ButtonListener listener = new ButtonListener(handler);
-		listener.addHandler(handler);
-		return listener;
+		this.getHandler().handleButtonPress();
 	}
 
 }

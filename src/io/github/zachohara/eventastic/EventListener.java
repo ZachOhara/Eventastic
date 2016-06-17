@@ -16,27 +16,16 @@
 
 package io.github.zachohara.eventastic;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public abstract class EventListener<L, H> {
 	
-	private List<H> handlers;
+	private H handler;
 	
-	public EventListener() {
-		this.handlers = new LinkedList<H>();
+	public EventListener(H handler) {
+		this.handler = handler;
 	}
 	
-	protected List<H> getHandlerList() {
-		return this.handlers;
-	}
-	
-	public boolean addHandler(H handler) {
-		return this.handlers.add(handler);
-	}
-	
-	public boolean removeHandler(H handler) {
-		return this.handlers.remove(handler);
+	protected H getHandler() {
+		return this.handler;
 	}
 
 }

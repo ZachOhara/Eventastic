@@ -22,8 +22,12 @@ import javafx.stage.WindowEvent;
 
 public class WindowEventListener extends EventListener<WindowListenable, WindowHandler> implements EventHandler<WindowEvent> {
 	
-	public WindowEventListener(WindowListenable listenable) {
-		super();
+	public WindowEventListener(SelfWindowHandler handler) {
+		this(handler, handler);
+	}
+	
+	public WindowEventListener(WindowListenable listenable, WindowHandler handler) {
+		super(handler);
 		listenable.setOnCloseRequest(this);
 		listenable.setOnHidden(this);
 		listenable.setOnHiding(this);
@@ -33,15 +37,7 @@ public class WindowEventListener extends EventListener<WindowListenable, WindowH
 
 	@Override
 	public void handle(WindowEvent event) {
-		for (WindowHandler handler : this.getHandlerList()) {
-			handler.handleWindowEvent(event, event.getEventType());
-		}
-	}
-	
-	public static WindowEventListener createSelfHandler(SelfWindowHandler handler) {
-		WindowEventListener listener = new WindowEventListener(handler);
-		listener.addHandler(handler);
-		return listener;
+		this.getHandler().handleWindowEvent(event, event.getEventType());
 	}
 	
 }

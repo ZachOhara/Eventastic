@@ -22,22 +22,18 @@ import javafx.scene.input.KeyEvent;
 
 public class KeyEventListener extends EventListener<KeyListenable, KeyHandler> implements EventHandler<KeyEvent> {
 	
-	public KeyEventListener(KeyListenable listenable) {
-		super();
+	public KeyEventListener(SelfKeyHandler handler) {
+		this(handler, handler);
+	}
+	
+	public KeyEventListener(KeyListenable listenable, KeyHandler handler) {
+		super(handler);
 		listenable.addEventHandler(KeyEvent.ANY, this);
 	}
 
 	@Override
 	public void handle(KeyEvent event) {
-		for (KeyHandler handler : this.getHandlerList()) {
-			handler.handleKey(event, event.getEventType(), event.getCode());
-		}
-	}
-	
-	public static KeyEventListener createSelfHandler(SelfKeyHandler handler) {
-		KeyEventListener listener = new KeyEventListener(handler);
-		listener.addHandler(handler);
-		return listener;
+		this.getHandler().handleKey(event, event.getEventType(), event.getCode());
 	}
 
 }
